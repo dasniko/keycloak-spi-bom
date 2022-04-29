@@ -6,7 +6,7 @@
 
 	<groupId>com.github.dasniko</groupId>
 	<artifactId>keycloak-spi-bom</artifactId>
-	<version>17.0.0</version>
+	<version>18.0.0</version>
 
 	<packaging>pom</packaging>
 
@@ -16,11 +16,11 @@
 	<properties>
 		<junit.version>5.8.2</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<keycloak.version>17.0.0</keycloak.version>
-		<lombok.version>1.18.22</lombok.version>
-		<restassured.version>4.4.0</restassured.version>
-		<testcontainers.version>1.16.3</testcontainers.version>
-		<testcontainers-keycloak.version>main-SNAPSHOT</testcontainers-keycloak.version>
+		<keycloak.version>18.0.0</keycloak.version>
+		<lombok.version>1.18.24</lombok.version>
+		<restassured.version>5.0.1</restassured.version>
+		<testcontainers.version>1.17.1</testcontainers.version>
+		<testcontainers-keycloak.version>2.2.0</testcontainers-keycloak.version>
 		<slf4j.version>1.7.30</slf4j.version>
 	</properties>
 
