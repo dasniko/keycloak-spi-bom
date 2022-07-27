@@ -14,10 +14,11 @@
 	<description>Keycloak BOM for server extensions, maintained by @dasniko</description>
 
 	<properties>
+		<httpclient.version>4.5.13</httpclient.version>
 		<junit.version>5.8.2</junit.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<keycloak.version>19.0.0</keycloak.version>
 		<lombok.version>1.18.24</lombok.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<restassured.version>5.0.1</restassured.version>
 		<resteasy.version>4.7.5.Final</resteasy.version>
 		<testcontainers.version>1.17.1</testcontainers.version>
@@ -68,6 +69,12 @@
 				<groupId>org.jboss.resteasy</groupId>
 				<artifactId>resteasy-core</artifactId>
 				<version>${resteasy.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${httpclient.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
