@@ -6,7 +6,7 @@
 
 	<groupId>com.github.dasniko</groupId>
 	<artifactId>keycloak-spi-bom</artifactId>
-	<version>18.0.0</version>
+	<version>19.0.0</version>
 
 	<packaging>pom</packaging>
 
@@ -16,11 +16,12 @@
 	<properties>
 		<junit.version>5.8.2</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<keycloak.version>18.0.0</keycloak.version>
+		<keycloak.version>19.0.0</keycloak.version>
 		<lombok.version>1.18.24</lombok.version>
 		<restassured.version>5.0.1</restassured.version>
+		<resteasy.version>4.7.5.Final</resteasy.version>
 		<testcontainers.version>1.17.1</testcontainers.version>
-		<testcontainers-keycloak.version>2.2.0</testcontainers-keycloak.version>
+		<testcontainers-keycloak.version>2.3.0</testcontainers-keycloak.version>
 		<slf4j.version>1.7.30</slf4j.version>
 	</properties>
 
@@ -37,28 +38,55 @@
 				<groupId>org.keycloak</groupId>
 				<artifactId>keycloak-server-spi-private</artifactId>
 				<version>${keycloak.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.keycloak</groupId>
 				<artifactId>keycloak-services</artifactId>
 				<version>${keycloak.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-model-legacy</artifactId>
+				<version>${keycloak.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>${slf4j.version}</version>
-				<scope>test</scope>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-model-legacy-private</artifactId>
+				<version>${keycloak.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-model-legacy-services</artifactId>
+				<version>${keycloak.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-core</artifactId>
+				<version>${resteasy.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
 				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.github.dasniko</groupId>
