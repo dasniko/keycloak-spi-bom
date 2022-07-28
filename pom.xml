@@ -6,12 +6,47 @@
 
 	<groupId>com.github.dasniko</groupId>
 	<artifactId>keycloak-spi-bom</artifactId>
-	<version>19.0.0</version>
+	<version>19.0.0-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
 	<name>Keycloak BOM for server extensions, maintained by @dasniko</name>
 	<description>Keycloak BOM for server extensions, maintained by @dasniko</description>
+	<url>https://github.com/dasniko/keycloak-spi-bom</url>
+
+	<developers>
+		<developer>
+			<id>dasniko</id>
+			<name>Niko Köbler</name>
+			<email>niko@n-k.de</email>
+			<url>https://www.n-k.de</url>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>Apache-2.0</name>
+			<url>https://opensource.org/licenses/Apache-2.0</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/dasniko/keycloak-spi-bom</url>
+		<connection>scm:git:git@github.com:dasniko/keycloak-spi-bom.git</connection>
+		<developerConnection>scm:git:git@github.com:dasniko/keycloak-spi-bom.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
 	<properties>
 		<httpclient.version>4.5.13</httpclient.version>
@@ -128,11 +163,45 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<repositories>
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-	</repositories>
+	<profiles>
+		<profile>
+			<id>release</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.8</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
