@@ -49,7 +49,7 @@
 	<properties>
 		<httpclient.version>4.5.13</httpclient.version>
 		<junit.version>5.8.2</junit.version>
-		<keycloak.version>19.0.0</keycloak.version>
+		<keycloak.version>19.0.2</keycloak.version>
 		<lombok.version>1.18.24</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<restassured.version>5.0.1</restassured.version>
