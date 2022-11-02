@@ -48,14 +48,14 @@
 
 	<properties>
 		<httpclient.version>4.5.13</httpclient.version>
-		<junit.version>5.8.2</junit.version>
-		<keycloak.version>19.0.2</keycloak.version>
+		<junit.version>5.9.1</junit.version>
+		<keycloak.version>20.0.0</keycloak.version>
 		<lombok.version>1.18.24</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<restassured.version>5.0.1</restassured.version>
-		<resteasy.version>4.7.5.Final</resteasy.version>
-		<testcontainers.version>1.17.1</testcontainers.version>
-		<testcontainers-keycloak.version>2.3.0</testcontainers-keycloak.version>
+		<restassured.version>5.2.0</restassured.version>
+		<resteasy.version>4.7.7.Final</resteasy.version>
+		<testcontainers.version>1.17.3</testcontainers.version>
+		<testcontainers-keycloak.version>2.4.0</testcontainers-keycloak.version>
 		<slf4j.version>1.7.30</slf4j.version>
 	</properties>
 
