@@ -48,26 +48,31 @@
 
 	<properties>
 		<auto-service.version>1.0.1</auto-service.version>
-		<httpclient.version>4.5.13</httpclient.version>
-		<junit.version>5.9.2</junit.version>
-		<keycloak.version>21.1.0</keycloak.version>
-		<lombok.version>1.18.26</lombok.version>
+		<httpclient.version>4.5.14</httpclient.version>
+		<junit.version>5.9.3</junit.version>
+		<keycloak.version>22.0.0</keycloak.version>
+		<lombok.version>1.18.28</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<restassured.version>5.3.0</restassured.version>
-		<resteasy.version>4.7.7.Final</resteasy.version>
-		<testcontainers.version>1.17.6</testcontainers.version>
-		<testcontainers-keycloak.version>2.5.0</testcontainers-keycloak.version>
-		<slf4j.version>1.7.30</slf4j.version>
+		<restassured.version>5.3.1</restassured.version>
+		<resteasy.version>6.2.4.Final</resteasy.version>
+		<testcontainers.version>1.18.3</testcontainers.version>
+		<testcontainers-keycloak.version>3.0.0</testcontainers-keycloak.version>
+		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.keycloak.bom</groupId>
-				<artifactId>keycloak-spi-bom</artifactId>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-core</artifactId>
 				<version>${keycloak.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-server-spi</artifactId>
+				<version>${keycloak.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.keycloak</groupId>
@@ -196,7 +201,7 @@
 					<plugin>
 						<groupId>org.sonatype.plugins</groupId>
 						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.8</version>
+						<version>1.6.13</version>
 						<extensions>true</extensions>
 						<configuration>
 							<serverId>ossrh</serverId>
