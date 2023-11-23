@@ -47,16 +47,16 @@
 	</distributionManagement>
 
 	<properties>
-		<auto-service.version>1.0.1</auto-service.version>
+		<auto-service.version>1.1.1</auto-service.version>
 		<httpclient.version>4.5.14</httpclient.version>
-		<junit.version>5.9.3</junit.version>
-		<keycloak.version>22.0.0</keycloak.version>
-		<lombok.version>1.18.28</lombok.version>
+		<junit.version>5.10.1</junit.version>
+		<keycloak.version>23.0.0</keycloak.version>
+		<lombok.version>1.18.30</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<restassured.version>5.3.1</restassured.version>
+		<restassured.version>5.3.2</restassured.version>
 		<resteasy.version>6.2.4.Final</resteasy.version>
-		<testcontainers.version>1.18.3</testcontainers.version>
-		<testcontainers-keycloak.version>3.0.0</testcontainers-keycloak.version>
+		<testcontainers.version>1.19.3</testcontainers.version>
+		<testcontainers-keycloak.version>3.2.0</testcontainers-keycloak.version>
 		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
 
