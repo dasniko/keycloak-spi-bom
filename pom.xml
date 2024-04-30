@@ -15,7 +15,7 @@
 	<developers>
 		<developer>
 			<id>dasniko</id>
-			<name>Niko Köbler (@dasniko) Keycloak Expert</name>
+			<name>Niko Köbler (@dasniko) Expert for Keycloak IAM &amp; SSO</name>
 			<email>niko@n-k.de</email>
 			<url>https://www.n-k.de</url>
 		</developer>
@@ -53,14 +53,14 @@
 		<commons-lang.version>3.14.0</commons-lang.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>5.10.2</junit.version>
-		<keycloak.version>24.0.0</keycloak.version>
+		<keycloak.version>24.0.3</keycloak.version>
 		<lombok.version>1.18.30</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quarkus.version>3.8.1</quarkus.version>
+		<quarkus.version>3.8.3</quarkus.version>
 		<restassured.version>5.4.0</restassured.version>
 		<resteasy.version>6.2.7.Final</resteasy.version>
 		<testcontainers.version>1.19.6</testcontainers.version>
-		<testcontainers-keycloak.version>3.3.0</testcontainers-keycloak.version>
+		<testcontainers-keycloak.version>3.3.1</testcontainers-keycloak.version>
 		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
 
