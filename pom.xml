@@ -4,7 +4,7 @@
 
 	<groupId>com.github.dasniko</groupId>
 	<artifactId>keycloak-spi-bom</artifactId>
-	<version>25.0.1-SNAPSHOT</version>
+	<version>999.0.0-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
@@ -53,7 +53,7 @@
 		<commons-lang.version>3.14.0</commons-lang.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>5.10.2</junit.version>
-		<keycloak.version>25.0.0</keycloak.version>
+		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
 		<lombok.version>1.18.32</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<quarkus.version>3.8.5</quarkus.version>
@@ -241,5 +241,15 @@
 			</build>
 		</profile>
 	</profiles>
+
+	<repositories>
+		<repository>
+			<id>jboss-snapshots</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
