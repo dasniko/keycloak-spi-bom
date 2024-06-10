@@ -53,14 +53,13 @@
 		<commons-lang.version>3.14.0</commons-lang.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>5.10.2</junit.version>
-		<keycloak.version>24.0.3</keycloak.version>
-		<lombok.version>1.18.30</lombok.version>
+		<keycloak.version>25.0.0</keycloak.version>
+		<lombok.version>1.18.32</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quarkus.version>3.8.3</quarkus.version>
+		<quarkus.version>3.8.5</quarkus.version>
 		<restassured.version>5.4.0</restassured.version>
-		<resteasy.version>6.2.7.Final</resteasy.version>
-		<testcontainers.version>1.19.6</testcontainers.version>
-		<testcontainers-keycloak.version>3.3.1</testcontainers-keycloak.version>
+		<testcontainers.version>1.19.8</testcontainers.version>
+		<testcontainers-keycloak.version>3.4.0</testcontainers-keycloak.version>
 		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
 
@@ -112,12 +111,6 @@
 				<groupId>org.keycloak</groupId>
 				<artifactId>keycloak-model-jpa</artifactId>
 				<version>${keycloak.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.jboss.resteasy</groupId>
-				<artifactId>resteasy-core</artifactId>
-				<version>${resteasy.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
