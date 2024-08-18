@@ -59,7 +59,7 @@
 		<quarkus.version>3.8.5</quarkus.version>
 		<restassured.version>5.4.0</restassured.version>
 		<testcontainers.version>1.19.8</testcontainers.version>
-		<testcontainers-keycloak.version>3.4.0</testcontainers-keycloak.version>
+		<testcontainers-keycloak.version>main-SNAPSHOT</testcontainers-keycloak.version>
 		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
 
@@ -249,6 +249,10 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
+		</repository>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
 
