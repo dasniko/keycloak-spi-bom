@@ -31,8 +31,3 @@ Simply put the dependency coordinates to the `dependencyManagement` section in y
   </dependencies>
 </dependencyManagement>
 ```
-
-### JitPack
-
-As an alternative, and also for current development and snapshot versions and older (< `19.0.0`) releases, this BOM is also available via the [JitPack](https://jitpack.io/#dasniko/keycloak-spi-bom) repository.
-See link for more details on how to include in your projects.
