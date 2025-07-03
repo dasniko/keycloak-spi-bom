@@ -49,13 +49,13 @@
 		<commons-lang.version>3.17.0</commons-lang.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>5.12.1</junit.version>
-		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
+		<keycloak.version>26.3.0</keycloak.version>
 		<lombok.version>1.18.38</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quarkus.version>3.20.0</quarkus.version>
+		<quarkus.version>3.20.1</quarkus.version>
 		<restassured.version>5.5.0</restassured.version>
-		<testcontainers.version>1.20.6</testcontainers.version>
-		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
+		<testcontainers.version>1.21.3</testcontainers.version>
+		<testcontainers-keycloak.version>3.8.0</testcontainers-keycloak.version>
 		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
 
@@ -126,6 +126,12 @@
 				<artifactId>quarkus-rest</artifactId>
 				<version>${quarkus.version}</version>
 				<scope>provided</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>io.quarkus</groupId>
+						<artifactId>quarkus-core</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
