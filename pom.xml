@@ -44,6 +44,7 @@
 
 	<properties>
 		<auto-service.version>1.1.1</auto-service.version>
+		<caffeine.version>3.2.0</caffeine.version>
 		<commons-codec.version>1.18.0</commons-codec.version>
 		<commons-io.version>2.18.0</commons-io.version>
 		<commons-lang.version>3.17.0</commons-lang.version>
@@ -155,6 +156,12 @@
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
 				<version>${commons-io.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.github.ben-manes.caffeine</groupId>
+				<artifactId>caffeine</artifactId>
+				<version>${caffeine.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
