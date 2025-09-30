@@ -51,7 +51,7 @@
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>5.13.4</junit.version>
 		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
-		<lombok.version>1.18.40</lombok.version>
+		<lombok.version>1.18.42</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<quarkus.version>3.26.2</quarkus.version>
 		<restassured.version>5.5.6</restassured.version>
