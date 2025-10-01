@@ -14,8 +14,8 @@ Just use the desired proper tag.
 
 ### Maven Central
 
-The release versions beginning of `19.0.0` of this project are available at [Maven Central](https://search.maven.org/artifact/com.github.dasniko/keycloak-spi-bom).
-Simply put the dependency coordinates to the `dependencyManagement` section in your `pom.xml` (or something similar, if you use e.g. Gradle or something else):
+The release versions of this project are available at [Maven Central](https://central.sonatype.com/artifact/com.github.dasniko/keycloak-spi-bom).
+Put the dependency coordinates to the `dependencyManagement` section in your `pom.xml` (or something similar, if you use e.g. Gradle or something else):
 
 ```xml
 <dependencyManagement>
