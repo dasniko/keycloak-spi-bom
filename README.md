@@ -1,8 +1,8 @@
 # (Custom) Keycloak SPI BOM
 
 ![](https://img.shields.io/github/license/dasniko/keycloak-spi-bom?label=License)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.dasniko/keycloak-spi-bom.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.dasniko%22%20AND%20a:%22keycloak-spi-bom%22)
-![](https://img.shields.io/badge/Keycloak-26.3-blue)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.dasniko/keycloak-spi-bom.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/com.github.dasniko/keycloak-spi-bom)
+![](https://img.shields.io/badge/Keycloak-26.4-blue)
 
 As the official Keycloak SPI BOM is still lacking good and comprehensive dependency support, I maintain an own, custom Keycloak SPI BOM to use in Keycloak SPI extension projects.
 
