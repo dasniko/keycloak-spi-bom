@@ -50,13 +50,13 @@
 		<commons-lang.version>3.18.0</commons-lang.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>6.0.1</junit.version>
-		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
+		<keycloak.version>26.5.0</keycloak.version>
 		<lombok.version>1.18.42</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quarkus.version>3.26.2</quarkus.version>
+		<quarkus.version>3.27.1</quarkus.version>
 		<restassured.version>6.0.0</restassured.version>
-		<testcontainers.version>1.21.3</testcontainers.version>
-		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
+		<testcontainers.version>2.0.3</testcontainers.version>
+		<testcontainers-keycloak.version>4.1.0</testcontainers-keycloak.version>
 		<slf4j.version>2.0.17</slf4j.version>
 	</properties>
 
