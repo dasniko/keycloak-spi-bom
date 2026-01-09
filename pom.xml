@@ -4,7 +4,7 @@
 
 	<groupId>com.github.dasniko</groupId>
 	<artifactId>keycloak-spi-bom</artifactId>
-	<version>26.5.0</version>
+	<version>26.5.1-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
@@ -32,7 +32,7 @@
 		<url>https://github.com/dasniko/keycloak-spi-bom</url>
 		<connection>scm:git:git@github.com:dasniko/keycloak-spi-bom.git</connection>
 		<developerConnection>scm:git:git@github.com:dasniko/keycloak-spi-bom.git</developerConnection>
-		<tag>v26.5.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<distributionManagement>
