@@ -56,7 +56,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<quarkus.version>3.27.1</quarkus.version>
 		<restassured.version>6.0.0</restassured.version>
-		<testcontainers.version>2.0.3</testcontainers.version>
+		<testcontainers-junit.version>1.21.4</testcontainers-junit.version>
 		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
 		<slf4j.version>2.0.17</slf4j.version>
 	</properties>
@@ -223,8 +223,14 @@
 			<dependency>
 				<groupId>org.testcontainers</groupId>
 				<artifactId>junit-jupiter</artifactId>
-				<version>${testcontainers.version}</version>
+				<version>${testcontainers-junit.version}</version>
 				<scope>test</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>org.testcontainers</groupId>
+						<artifactId>testcontainers</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>io.rest-assured</groupId>
