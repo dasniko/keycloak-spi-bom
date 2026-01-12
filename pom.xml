@@ -52,7 +52,7 @@
 		<junit.version>6.0.1</junit.version>
 		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
 		<lombok.version>1.18.42</lombok.version>
-		<micrometer.version>1.14.7</micrometer.version>
+		<micrometer.version>1.16.1</micrometer.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<quarkus.version>3.27.1</quarkus.version>
 		<restassured.version>6.0.0</restassured.version>
