@@ -24,6 +24,7 @@ updates:
     ignore:
       - dependency-name: "org.keycloak:*"
       - dependency-name: "io.quarkus:*"
+      - dependency-name: "io.micrometer:*"
       - dependency-name: "org.apache.*"
       - dependency-name: "commons-*"
       - dependency-name: "com.github.ben-manes.caffeine:*"
