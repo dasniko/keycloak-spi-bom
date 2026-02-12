@@ -26,6 +26,7 @@ updates:
       - dependency-name: "io.quarkus:*"
       - dependency-name: "org.apache.*"
       - dependency-name: "commons-*"
+      - dependency-name: "com.google.guava:*"
       - dependency-name: "com.github.ben-manes.caffeine:*"
       - dependency-name: "org.slf4j:*"
       - dependency-name: "org.testcontainers:*"

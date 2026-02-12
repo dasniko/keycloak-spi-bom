@@ -48,6 +48,7 @@
 		<commons-codec.version>1.19.0</commons-codec.version>
 		<commons-io.version>2.20.0</commons-io.version>
 		<commons-lang.version>3.18.0</commons-lang.version>
+		<guava.version>33.4.8-jre</guava.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>6.0.1</junit.version>
 		<keycloak.version>26.5.0</keycloak.version>
@@ -163,6 +164,12 @@
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
 				<version>${commons-io.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
