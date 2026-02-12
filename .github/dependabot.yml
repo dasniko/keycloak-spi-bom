@@ -27,6 +27,7 @@ updates:
       - dependency-name: "io.micrometer:*"
       - dependency-name: "org.apache.*"
       - dependency-name: "commons-*"
+      - dependency-name: "com.google.guava:*"
       - dependency-name: "com.github.ben-manes.caffeine:*"
       - dependency-name: "org.slf4j:*"
       - dependency-name: "org.testcontainers:*"
