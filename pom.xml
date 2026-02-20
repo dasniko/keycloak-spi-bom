@@ -50,7 +50,7 @@
 		<commons-lang.version>3.18.0</commons-lang.version>
 		<guava.version>33.4.8-jre</guava.version>
 		<httpclient.version>4.5.14</httpclient.version>
-		<junit.version>6.0.2</junit.version>
+		<junit.version>6.0.3</junit.version>
 		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
 		<lombok.version>1.18.42</lombok.version>
 		<micrometer.version>1.14.7</micrometer.version>
