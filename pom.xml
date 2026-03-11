@@ -50,6 +50,7 @@
 		<commons-io.version>2.20.0</commons-io.version>
 		<commons-lang.version>3.18.0</commons-lang.version>
 		<guava.version>33.4.8-jre</guava.version>
+		<htmlunit.version>4.21.0</htmlunit.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>6.0.2</junit.version>
 		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
@@ -244,6 +245,12 @@
 				<groupId>io.rest-assured</groupId>
 				<artifactId>rest-assured</artifactId>
 				<version>${restassured.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.htmlunit</groupId>
+				<artifactId>htmlunit</artifactId>
+				<version>${htmlunit.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
