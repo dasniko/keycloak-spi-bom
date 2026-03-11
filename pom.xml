@@ -44,6 +44,7 @@
 
 	<properties>
 		<auto-service.version>1.1.1</auto-service.version>
+		<awaitility.version>4.3.0</awaitility.version>
 		<caffeine.version>3.2.2</caffeine.version>
 		<commons-codec.version>1.19.0</commons-codec.version>
 		<commons-io.version>2.20.0</commons-io.version>
@@ -243,6 +244,12 @@
 				<groupId>io.rest-assured</groupId>
 				<artifactId>rest-assured</artifactId>
 				<version>${restassured.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.awaitility</groupId>
+				<artifactId>awaitility</artifactId>
+				<version>${awaitility.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
