@@ -44,19 +44,19 @@
 	<properties>
 		<auto-service.version>1.1.1</auto-service.version>
 		<awaitility.version>4.3.0</awaitility.version>
-		<caffeine.version>3.2.2</caffeine.version>
-		<commons-codec.version>1.19.0</commons-codec.version>
-		<commons-io.version>2.20.0</commons-io.version>
-		<commons-lang.version>3.18.0</commons-lang.version>
-		<guava.version>33.4.8-jre</guava.version>
+		<caffeine.version>3.2.3</caffeine.version>
+		<commons-codec.version>1.21.0</commons-codec.version>
+		<commons-io.version>2.21.0</commons-io.version>
+		<commons-lang.version>3.20.0</commons-lang.version>
+		<guava.version>33.5.0-jre</guava.version>
 		<htmlunit.version>4.21.0</htmlunit.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>6.0.3</junit.version>
 		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
 		<lombok.version>1.18.44</lombok.version>
-		<micrometer.version>1.14.7</micrometer.version>
+		<micrometer.version>1.16.3</micrometer.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quarkus.version>3.27.1</quarkus.version>
+		<quarkus.version>3.33.1</quarkus.version>
 		<restassured.version>6.0.0</restassured.version>
 		<testcontainers-junit.version>1.21.4</testcontainers-junit.version>
 		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
