@@ -28,7 +28,7 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           trust_level: 5
       - name: Set version from tag
-        run: ./mvnw versions:set -DnewVersion=${GITHUB_REF_NAME#v} -DgenerateBackupPoms=false
+        run: mvn versions:set -DnewVersion=${GITHUB_REF_NAME#v} -DgenerateBackupPoms=false
       - name: Deploy to Maven Central
         run: mvn deploy -Prelease
         env:
