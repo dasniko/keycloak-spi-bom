@@ -52,11 +52,11 @@
 		<htmlunit.version>4.21.0</htmlunit.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>6.0.3</junit.version>
-		<keycloak.version>26.6.1</keycloak.version>
+		<keycloak.version>26.6.2</keycloak.version>
 		<lombok.version>1.18.44</lombok.version>
 		<micrometer.version>1.16.3</micrometer.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quarkus.version>3.33.1</quarkus.version>
+		<quarkus.version>3.33.1.1</quarkus.version>
 		<restassured.version>6.0.0</restassured.version>
 		<testcontainers-junit.version>1.21.4</testcontainers-junit.version>
 		<testcontainers-keycloak.version>4.2.1</testcontainers-keycloak.version>
