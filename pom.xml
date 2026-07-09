@@ -52,14 +52,14 @@
 		<htmlunit.version>5.2.0</htmlunit.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>6.1.1</junit.version>
-		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
+		<keycloak.version>26.7.0</keycloak.version>
 		<lombok.version>1.18.46</lombok.version>
 		<micrometer.version>1.16.3</micrometer.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quarkus.version>3.33.1</quarkus.version>
+		<quarkus.version>3.33.2.1</quarkus.version>
 		<restassured.version>6.0.0</restassured.version>
-		<testcontainers-junit.version>1.21.4</testcontainers-junit.version>
-		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
+		<testcontainers.version>2.0.5</testcontainers.version>
+		<testcontainers-keycloak.version>4.3.0</testcontainers-keycloak.version>
 		<slf4j.version>2.0.17</slf4j.version>
 	</properties>
 
@@ -230,15 +230,9 @@
 			</dependency>
 			<dependency>
 				<groupId>org.testcontainers</groupId>
-				<artifactId>junit-jupiter</artifactId>
-				<version>${testcontainers-junit.version}</version>
+				<artifactId>testcontainers-junit-jupiter</artifactId>
+				<version>${testcontainers.version}</version>
 				<scope>test</scope>
-				<exclusions>
-					<exclusion>
-						<groupId>org.testcontainers</groupId>
-						<artifactId>testcontainers</artifactId>
-					</exclusion>
-				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>io.rest-assured</groupId>
