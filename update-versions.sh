@@ -62,7 +62,7 @@ echo "  → ${kc_version}"
 
 echo ""
 echo "Reading ${KC_LIB_PATH}..."
-libs=$(docker run --rm --entrypoint /bin/bash "${KC_IMAGE}:${kc_version}" -c "ls ${KC_LIB_PATH}")
+libs=$(docker run --pull always --rm --entrypoint /bin/bash "${KC_IMAGE}:${kc_version}" -c "ls ${KC_LIB_PATH}")
 echo "  Got $(printf '%s\n' "${libs}" | wc -l | tr -d ' ') files."
 
 # --- 3. Extract versions from JAR filenames ----------------------------------
