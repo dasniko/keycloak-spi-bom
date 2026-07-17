@@ -42,8 +42,8 @@
 	</distributionManagement>
 
 	<properties>
-		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
-		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
+		<keycloak.version>26.7.0</keycloak.version>
+		<testcontainers-keycloak.version>4.3.0</testcontainers-keycloak.version>
 
 		<auto-service.version>1.1.1</auto-service.version>
 		<awaitility.version>4.3.0</awaitility.version>
