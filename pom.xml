@@ -42,6 +42,9 @@
 	</distributionManagement>
 
 	<properties>
+		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
+		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
+
 		<auto-service.version>1.1.1</auto-service.version>
 		<awaitility.version>4.3.0</awaitility.version>
 		<caffeine.version>3.2.3</caffeine.version>
@@ -52,14 +55,12 @@
 		<htmlunit.version>5.3.0</htmlunit.version>
 		<httpclient.version>4.5.14</httpclient.version>
 		<junit.version>6.1.2</junit.version>
-		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
 		<lombok.version>1.18.46</lombok.version>
 		<micrometer.version>1.16.3</micrometer.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quarkus.version>3.33.1</quarkus.version>
+		<quarkus.version>3.33.2.1</quarkus.version>
 		<restassured.version>6.0.1</restassured.version>
 		<testcontainers.version>2.0.5</testcontainers.version>
-		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
 		<slf4j.version>2.0.17</slf4j.version>
 	</properties>
 
