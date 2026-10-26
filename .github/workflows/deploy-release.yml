@@ -26,6 +26,12 @@ jobs:
           trust_level: 5
       - name: Set version from tag
         run: mvn versions:set -DnewVersion=${GITHUB_REF_NAME#v} -DgenerateBackupPoms=false
+      - name: Fail on snapshot versions
+        run: |
+          if grep -n -- '-SNAPSHOT' pom.xml; then
+            echo "Snapshot versions left in a release" >&2
+            exit 1
+          fi
       - name: Deploy to Maven Central
         run: mvn -s .github/maven-settings.xml deploy -Prelease
         env:
