@@ -42,6 +42,7 @@
 	</distributionManagement>
 
 	<properties>
+		<copied-code.version>999.0.0-SNAPSHOT</copied-code.version>
 		<keycloak.version>999.0.0-SNAPSHOT</keycloak.version>
 		<testcontainers-keycloak.version>999.0.0-SNAPSHOT</testcontainers-keycloak.version>
 
@@ -198,6 +199,12 @@
 				<version>${auto-service.version}</version>
 				<scope>provided</scope>
 				<optional>true</optional>
+			</dependency>
+			<dependency>
+				<groupId>com.github.dasniko</groupId>
+				<artifactId>copied-code-annotations</artifactId>
+				<version>${copied-code.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>

@@ -51,6 +51,7 @@ Just use the desired tag matching your target Keycloak version.
 | `micrometer-core` | Metrics / Micrometer |
 | `lombok` | Lombok annotation processor |
 | `auto-service` | Google Auto-Service |
+| `copied-code-annotations` | Annotations for code copied from Keycloak (by @dasniko), see [below](#copied-code-check) |
 | `slf4j-api` | SLF4J logging API |
 
 ### Testing (scope: `test`)
@@ -95,6 +96,44 @@ dependencies {
     implementation(platform("com.github.dasniko:keycloak-spi-bom:VERSION"))
 }
 ```
+
+### Copied code check
+
+Code copied from Keycloak into your extension can be marked with `@CopiedFromKeycloak`, so that the
+[copied-code-maven-plugin](https://github.com/dasniko/copied-code-maven-plugin) fails the build when the original changes upstream.
+The BOM manages the annotations, but a BOM cannot manage plugins, so the plugin needs its own version:
+
+```xml
+<dependency>
+  <groupId>com.github.dasniko</groupId>
+  <artifactId>copied-code-annotations</artifactId>
+</dependency>
+```
+
+```xml
+<plugin>
+  <groupId>com.github.dasniko</groupId>
+  <artifactId>copied-code-maven-plugin</artifactId>
+  <version>VERSION</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>check</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <upstreams>
+      <upstream>
+        <groupId>org.keycloak</groupId>
+        <version>${keycloak.version}</version>
+      </upstream>
+    </upstreams>
+  </configuration>
+</plugin>
+```
+
+`${keycloak.version}` must be defined in your own `pom.xml`, as properties of an imported BOM are not visible.
 
 ### Snapshot
 
