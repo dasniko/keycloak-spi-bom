@@ -7,7 +7,10 @@
 # The container is removed immediately after the directory listing.
 #
 # Requirements: curl, docker, jq, sed (POSIX)
-# Usage: ./update-versions.sh
+# Usage: ./update-versions.sh [--snapshot] [keycloak-version]
+#   Without version argument, the latest Keycloak release from GitHub is used.
+#   --snapshot: keep keycloak.version untouched (e.g. 999.0.0-SNAPSHOT on main),
+#               only update the library versions derived from the Keycloak distribution.
 
 set -euo pipefail
 
@@ -53,10 +56,20 @@ update_prop() {
 
 # --- 1. Get latest Keycloak version ------------------------------------------
 
-echo "Fetching latest Keycloak release..."
-kc_version=$(curl -sf --max-time 30 "${GITHUB_API}" | jq -r '.tag_name')
-[ -z "${kc_version}" ] && { echo "Error: could not read tag_name from GitHub API" >&2; exit 1; }
-echo "  → ${kc_version}"
+snapshot=false
+if [ "${1:-}" = "--snapshot" ]; then
+	snapshot=true
+	shift
+fi
+kc_version="${1:-}"
+if [ -n "${kc_version}" ]; then
+	echo "Using given Keycloak version: ${kc_version}"
+else
+	echo "Fetching latest Keycloak release..."
+	kc_version=$(curl -sf --max-time 30 "${GITHUB_API}" | jq -r '.tag_name')
+	[ -z "${kc_version}" ] && { echo "Error: could not read tag_name from GitHub API" >&2; exit 1; }
+	echo "  → ${kc_version}"
+fi
 
 # --- 2. Pull image and read lib directory from a temporary container ---------
 
@@ -97,7 +110,11 @@ echo "  keycloak.version      = ${kc_version}"
 echo ""
 echo "Updating ${POM_XML}..."
 
-update_prop "keycloak.version"      "${kc_version}"
+if [ "${snapshot}" = false ]; then
+	update_prop "keycloak.version"  "${kc_version}"
+else
+	echo "  keycloak.version: kept (--snapshot)"
+fi
 [ -n "${v_quarkus}" ]       && update_prop "quarkus.version"       "${v_quarkus}"
 [ -n "${v_caffeine}" ]      && update_prop "caffeine.version"      "${v_caffeine}"
 [ -n "${v_commons_codec}" ] && update_prop "commons-codec.version" "${v_commons_codec}"

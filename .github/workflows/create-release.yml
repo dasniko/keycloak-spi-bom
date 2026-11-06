@@ -1,0 +1,106 @@
+name: Create Release
+
+# Manually triggered (on main):
+#  1. updates the library versions on main (keycloak.version and the other two
+#     999.0.0-SNAPSHOT dependencies stay untouched) and pushes that to main,
+#  2. builds the release commit on top of it (sets the 3 release dependency versions),
+#     which is NOT part of any branch, and tags it as v<keycloak-version>,
+#  3. starts the "Deploy Release to Maven Central" workflow for that tag.
+# main itself keeps the 999.0.0-SNAPSHOT dependencies.
+
+on:
+  workflow_dispatch:
+    inputs:
+      keycloak-version:
+        description: "Keycloak version to release, e.g. 26.8.1 (the tag will be v<version>)"
+        required: true
+        type: string
+      testcontainers-keycloak-version:
+        description: "dasniko/testcontainers-keycloak version (empty = latest on Maven Central)"
+        required: false
+        type: string
+      copied-code-version:
+        description: "copied-code-parent version (empty = latest on Maven Central)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: create-release
+  cancel-in-progress: false
+
+jobs:
+  create-release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      KC_VERSION: ${{ inputs.keycloak-version }}
+      TC_KC_VERSION: ${{ inputs.testcontainers-keycloak-version }}
+      COPIED_CODE_VERSION: ${{ inputs.copied-code-version }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+
+      - name: Resolve and validate versions
+        run: |
+          set -euo pipefail
+          latest_release() {  # <groupPath> <artifactId>
+            curl -sf --max-time 30 \
+              "https://repo1.maven.org/maven2/$1/$2/maven-metadata.xml" \
+              | sed -n 's|.*<release>\(.*\)</release>.*|\1|p'
+          }
+          TC_KC_VERSION="${TC_KC_VERSION:-$(latest_release com/github/dasniko testcontainers-keycloak)}"
+          COPIED_CODE_VERSION="${COPIED_CODE_VERSION:-$(latest_release com/github/dasniko copied-code-parent)}"
+
+          [[ "$KC_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] \
+            || { echo "::error::Invalid Keycloak version '$KC_VERSION'"; exit 1; }
+          [[ "$TC_KC_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] \
+            || { echo "::error::Invalid testcontainers-keycloak version '$TC_KC_VERSION'"; exit 1; }
+          [[ "$COPIED_CODE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] \
+            || { echo "::error::Invalid copied-code version '$COPIED_CODE_VERSION'"; exit 1; }
+
+          if git ls-remote --exit-code --tags origin "refs/tags/v${KC_VERSION}" >/dev/null 2>&1; then
+            echo "::error::Tag v${KC_VERSION} already exists"
+            exit 1
+          fi
+
+          echo "TC_KC_VERSION=${TC_KC_VERSION}" >> "$GITHUB_ENV"
+          echo "COPIED_CODE_VERSION=${COPIED_CODE_VERSION}" >> "$GITHUB_ENV"
+          echo "Keycloak: ${KC_VERSION}, testcontainers-keycloak: ${TC_KC_VERSION}, copied-code: ${COPIED_CODE_VERSION}"
+
+      - name: Update library versions on main (keeping the 999.0.0-SNAPSHOT dependencies)
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ./update-versions.sh --snapshot "${KC_VERSION}"
+          if git diff --quiet pom.xml; then
+            echo "No library updates for main"
+          else
+            git commit -s -am "chore(deps): align library versions on main with Keycloak ${KC_VERSION}"
+            git push origin HEAD:main
+          fi
+
+      - name: Create release commit and push tag only
+        run: |
+          set -euo pipefail
+          sed -i "s|<keycloak.version>[^<]*</keycloak.version>|<keycloak.version>${KC_VERSION}</keycloak.version>|" pom.xml
+          sed -i "s|<testcontainers-keycloak.version>[^<]*</testcontainers-keycloak.version>|<testcontainers-keycloak.version>${TC_KC_VERSION}</testcontainers-keycloak.version>|" pom.xml
+          sed -i "s|<copied-code.version>[^<]*</copied-code.version>|<copied-code.version>${COPIED_CODE_VERSION}</copied-code.version>|" pom.xml
+          # project version (999.0.0-SNAPSHOT) is set from the tag by the deploy workflow
+          if grep -n -- '-SNAPSHOT' pom.xml | grep -v '<version>999.0.0-SNAPSHOT</version>'; then
+            echo "::error::Snapshot versions left in pom.xml"
+            exit 1
+          fi
+          git diff --stat
+          git commit -s -am "release: Keycloak ${KC_VERSION} with testcontainers-keycloak ${TC_KC_VERSION} and copied-code ${COPIED_CODE_VERSION}"
+          git tag "v${KC_VERSION}"
+          git push origin "refs/tags/v${KC_VERSION}"
+
+      - name: Start release deployment
+        # a tag pushed with GITHUB_TOKEN doesn't trigger other workflows, workflow_dispatch does
+        run: gh workflow run deploy-release.yml --ref "v${KC_VERSION}"
